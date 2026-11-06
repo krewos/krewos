@@ -26,10 +26,10 @@ services:
       LEPTOS_SITE_ADDR: 127.0.0.1:3000
       HTTP_PROXY: ${HTTP_PROXY:-}
       HTTPS_PROXY: ${HTTPS_PROXY:-}
-      NO_PROXY: localhost,127.0.0.1,${NO_PROXY:-localhost}
+      NO_PROXY: ${NO_PROXY:-}
       http_proxy: ${http_proxy:-}
       https_proxy: ${https_proxy:-}
-      no_proxy: localhost,127.0.0.1,${no_proxy:-localhost}
+      no_proxy: ${no_proxy:-}
 
     # Unprivileged nginx (10004:10004) listens on 8080 (HTTP -> HTTPS + /ca.crt) and 8443 (TLS).
     ports:
