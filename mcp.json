@@ -1,0 +1,39 @@
+{
+  "mcpServers": {
+    "aws-knowledge-mcp-server": {
+      "command": "sh",
+      "args": [
+        "-c",
+        "uvx fastmcp run https://knowledge-mcp.global.api.aws 2>/dev/null"
+      ]
+    },
+    "brave_search": {
+      "command": "bunx",
+      "args": ["--bun", "@brave/brave-search-mcp-server@2.1.4"],
+      "env": {
+        "BRAVE_API_KEY": "${env:BRAVE_API_KEY}",
+        "BRAVE_MCP_ENABLED_TOOLS": "brave_llm_context"
+      }
+    },
+    "browser": {
+      "type": "streamable-http",
+      "url": "http://127.0.0.1:8931/mcp",
+      "tools": [
+        "browser_navigate",
+        "browser_navigate_back",
+        "browser_snapshot",
+        "browser_take_screenshot",
+        "browser_console_messages",
+        "browser_click",
+        "browser_type",
+        "browser_fill_form",
+        "browser_select_option",
+        "browser_hover",
+        "browser_press_key",
+        "browser_handle_dialog",
+        "browser_file_upload",
+        "browser_wait_for"
+      ]
+    }
+  }
+}

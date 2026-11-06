@@ -1,0 +1,9 @@
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/*
