@@ -1,0 +1,79 @@
+# KrewOS single-container Distroless/Hardened deployment (krewos + nginx TLS + interactive browser).
+#
+# Official prebuilt image from GitHub Container Registry (ghcr.io/krewos/krewos).
+#
+#   cp .env.example .env
+#   docker run --rm -it ghcr.io/krewos/krewos:latest /usr/local/bin/krewos --hash-password
+#   docker compose up -d        # or `docker-compose up -d` (v1)
+#
+# Works with Compose v2 and the standalone docker-compose 1.29.
+
+services:
+  krewos:
+    image: ghcr.io/krewos/krewos:${KREWOS_IMAGE_TAG:-v0.1.0}
+    init: false # tini is the image entrypoint
+    restart: unless-stopped
+    stop_grace_period: 15s
+
+    # Secrets (KREWOS_LLM_*, BRAVE_API_KEY, ...) only through the environment, never baked in.
+    env_file: .env
+    environment:
+      # Container paths and internal loopback binding win over anything in .env.
+      KREWOS_DATA_DIR: /var/lib/krewos
+      KREWOS_CONTAINER_MODE: "1"
+      KREWOS_BROWSER_ENABLED: ${KREWOS_BROWSER_ENABLED:-1}
+      KREWOS_AUTH_ORIGIN: ${KREWOS_AUTH_ORIGIN:-https://krewos.localhost}
+      LEPTOS_SITE_ADDR: 127.0.0.1:3000
+      HTTP_PROXY: ${HTTP_PROXY:-}
+      HTTPS_PROXY: ${HTTPS_PROXY:-}
+      NO_PROXY: ${NO_PROXY:-}
+      http_proxy: ${http_proxy:-}
+      https_proxy: ${https_proxy:-}
+      no_proxy: ${no_proxy:-}
+
+    # Unprivileged nginx (10004:10004) listens on 8080 (HTTP -> HTTPS + /ca.crt) and 8443 (TLS).
+    ports:
+      - "80:8080"
+      - "443:8443"
+
+    # --- Hardening ---------------------------------------------------------------
+    # The runtime starts as root *inside* the container with only the capabilities needed to
+    # drop system services (10001=mcp, 10002=browser, 10003=linuxbrew, 10004=nginx) and
+    # agent commands (20001+) to their isolated UIDs/GIDs and kill their process groups.
+    cap_drop:
+      - ALL
+    cap_add:
+      - SETUID
+      - SETGID
+      - KILL
+    security_opt:
+      - no-new-privileges:true
+    # Default Docker seccomp profile stays active (no `seccomp=unconfined`).
+    read_only: true
+    shm_size: 2g
+    tmpfs:
+      # `exec`: Docker defaults tmpfs to noexec, which breaks `bunx --bun` (node shim in /tmp).
+      - /tmp:rw,exec,nosuid,nodev,size=1g,mode=1777
+    pids_limit: 2048
+    mem_limit: 6g
+    cpus: 2.0
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+    # No privileged mode, no Docker socket, no host network / PID / IPC namespaces.
+
+    volumes:
+      - krewos-data:/var/lib/krewos # root 0700: SQLite + MEMORY.md + auto-generated TLS (agents cannot read)
+      - krewos-mcp-cache:/var/cache/krewos-mcp # mcp 10001, 0700: isolated uv / bun caches
+      - krewos-workspace:/workspace # root:browser (0:10002, 1775): per-agent 2770 workdirs (<agent_uid>:10002)
+      - krewos-linuxbrew:/home/linuxbrew # linuxbrew 10003, 0755: Homebrew prefix + installed formulae
+      - krewos-browser-profile:/var/lib/krewos-browser # browser 10002, 0750: per-agent Chromium profiles + VNC socket
+      - ./mcp.json:/app/mcp.json:ro
+
+volumes:
+  krewos-data:
+  krewos-mcp-cache:
+  krewos-workspace:
+  krewos-linuxbrew:
+  krewos-browser-profile:

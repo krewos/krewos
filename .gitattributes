@@ -1,0 +1,3 @@
+# Enforce LF line endings across all text files on every OS (including Windows checkouts)
+# so container entrypoints and shell scripts never pick up CRLF (\r\n).
+* text=auto eol=lf

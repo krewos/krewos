@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#1E1510" />
+      <stop offset="60%" stop-color="#0A0A0E" />
+      <stop offset="100%" stop-color="#050508" />
+    </radialGradient>
+    <radialGradient id="heliosCore" cx="40%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#FFF3D1" />
+      <stop offset="35%" stop-color="#FFB340" />
+      <stop offset="75%" stop-color="#E05A1B" />
+      <stop offset="100%" stop-color="#7A1C05" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="corona" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF8822" stop-opacity="0.45" />
+      <stop offset="60%" stop-color="#D94E1F" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#0A0A0E" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="orbitGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFB340" stop-opacity="0.75" />
+      <stop offset="50%" stop-color="#D97736" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.65" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="url(#bgGlow)" />
+  <circle cx="256" cy="256" r="170" fill="url(#corona)" />
+  <g transform="translate(256, 256) rotate(-24)">
+    <ellipse rx="205" ry="78" fill="none" stroke="url(#orbitGold)" stroke-width="3" />
+    <ellipse rx="145" ry="54" fill="none" stroke="#F59E0B" stroke-opacity="0.35" stroke-width="2.5" />
+    <ellipse rx="92" ry="34" fill="none" stroke="#FBBF24" stroke-opacity="0.5" stroke-width="2" />
+    <circle cx="-78" cy="-18" r="8" fill="#EAB308" />
+    <circle cx="118" cy="31" r="11" fill="#38BDF8" />
+    <circle cx="118" cy="31" r="17" fill="#38BDF8" fill-opacity="0.2" />
+    <circle cx="-175" cy="40" r="13" fill="#EA580C" />
+    <circle cx="-175" cy="40" r="6" fill="#FDE047" />
+  </g>
+  <circle cx="256" cy="256" r="46" fill="url(#heliosCore)" />
+  <circle cx="256" cy="256" r="34" fill="#FFBE44" />
+  <circle cx="246" cy="246" r="12" fill="#FFFBEB" fill-opacity="0.7" />
+</svg>

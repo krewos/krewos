@@ -1,0 +1,78 @@
+Copyright (c) 2026 KrewOS (https://github.com/krewos). All rights reserved.
+
+# KrewOS End-User License Agreement (EULA) 1.0
+
+IMPORTANT — READ CAREFULLY: This End-User License Agreement ("Agreement" or "EULA") is a binding legal contract between you ("You" or "Licensee") and the KrewOS project authors, operating as KrewOS ("Licensor"), governing Your download, installation, and use of the KrewOS software, including its compiled executables, container images, embedded WebGL/GLSL shaders, user-interface assets, and accompanying documentation (collectively, the "Software").
+
+By downloading, pulling, installing, copying, or running the Software, You agree to be bound by the terms of this Agreement. If You do not agree to these terms, do not download, install, or use the Software.
+
+---
+
+## 1. Definitions
+
+- **"Licensor"** means the KrewOS project authors, operating as KrewOS (<https://github.com/krewos>, contact: `krewos.team@gmail.com`).
+- **"Software"** means the proprietary KrewOS software distributed by the Licensor in executable or container image form (including via `ghcr.io/krewos` and <https://github.com/krewos/krewos>), together with any embedded shaders, scripts, assets, updates, and documentation provided by the Licensor.
+- **"You"** (or **"Your"**) means the individual or legal entity exercising rights under this Agreement.
+- **"Direct Use"** means running and interacting with the Software directly for Your own personal, educational, or internal day-to-day professional productivity (such as software development, system administration, or infrastructure operations), without charging third parties for access to, hosting of, or use of the Software itself.
+
+---
+
+## 2. Free License Grant (Execution Only)
+
+Subject to Your continuous compliance with all terms and conditions of this Agreement (including the strict anti-monetization rules in Section 3), the Licensor grants You a free, limited, non-exclusive, non-transferable, non-sublicensable, revocable license solely to **download, install, and execute** the unmodified Software ("As-Is") on computing infrastructure owned, leased, or controlled by You, strictly for **Direct Use**.
+
+**Configuration & Deployment Scripts:** Notwithstanding Section 3.2, You may modify plain-text configuration files and deployment scripts (such as `compose.yaml`, `mcp.json`, and proxy configurations) provided in the public deployment repository solely as necessary to configure and run the Software within Your own environment.
+
+**No Source Code License:** The Software is licensed in compiled binary/container form only, not sold, and is not open-source software. This Agreement grants no right to access source code, modify the Software binaries, or create derivative works.
+
+---
+
+## 3. Strict Restrictions (Anti-Monetization & IP Protection)
+
+Except with prior written authorization from the Licensor, You shall not (and shall not permit any third party to):
+
+- **3.1. No Commercial Resale, Hosting, or Monetization of the Software:**
+  - **No Sale or Licensing:** Sell, resell, rent, lease, lend, sublicense, or charge any fee for the Software, its binaries, or its container images.
+  - **No Managed Service / SaaS / Cloud Offering:** Host, provide, or make the Software available to third parties as a managed service, Software-as-a-Service (SaaS), Platform-as-a-Service (PaaS), multi-tenant instance, or paid cloud/hosting offering.
+  - **No Commercial Bundling or Wrapper Services:** Package, bundle, embed, or distribute the Software as part of any paid product, commercial appliance, paid training/courseware, or billable turnkey deployment sold to third parties.
+- **3.2. No Modification or Derivative Works:** Modify, patch, tamper with, translate, adapt, or create derivative works based on the Software binaries or container images, or bypass, disable, or alter any security, sandboxing, or attribution mechanism in the Software.
+- **3.3. No Reverse Engineering:** Decompile, disassemble, reverse-engineer, inspect binary symbols, extract embedded GLSL shaders or internal assets, or otherwise attempt to reconstruct or discover the source code, underlying algorithms, or trade secrets of the Software.
+  - *Statutory Interoperability Exception:* If applicable mandatory law (such as Article 6 of Directive 2009/24/EC of the European Parliament and of the Council) grants You an unwaivable right to decompile the Software solely to achieve interoperability with an independently created program, You may exercise that right strictly within those statutory limits and only after first requesting the necessary interoperability information in writing from the Licensor and allowing a reasonable period to provide it.
+- **3.4. No Redistribution or Re-hosting:** Redistribute, publish, mirror, re-host, or upload the Software binaries or container images on any third-party registry, repository, package manager, or download service. The Licensor's official GitHub organization (<https://github.com/krewos>) and container registry (`ghcr.io/krewos`) remain the sole authorized distribution channels.
+- **3.5. Preservation of Notices:** Remove, obscure, or alter any copyright, trademark, attribution, or proprietary notices included in or displayed by the Software (including `LICENSE` and `NOTICE`).
+
+---
+
+## 4. Intellectual Property & Third-Party Components
+
+The Software (including its architecture, Rust runtime, 3D Orrery shaders, visual design, and trade secrets) is protected by copyright, trade secret, and international intellectual property laws and treaties. All rights, title, and interest in and to the Software not expressly granted herein are reserved by the Licensor.
+
+The Software includes certain third-party open-source software components and fonts, which remain subject to their respective open-source licenses as documented in the accompanying `NOTICE` file. Nothing in this Agreement limits Your rights under, or grants You rights that supersede, the applicable license terms of those third-party components.
+
+---
+
+## 5. Term and Termination
+
+This Agreement is effective from the moment You first download, install, or use the Software and remains in effect until terminated.
+
+Your license under this Agreement terminates **immediately and automatically** without notice if You breach any term of this Agreement (in particular Section 3). Upon termination for any reason, You must immediately cease all use of the Software and delete all copies of the Software binaries and container images in Your possession or control. Sections 1, 3, 4, 6, 7, and 8 survive termination.
+
+---
+
+## 6. Disclaimer of Warranties ("As-Is")
+
+BECAUSE THE SOFTWARE IS PROVIDED FREE OF CHARGE, TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE SOFTWARE IS PROVIDED **"AS IS"** AND **"AS AVAILABLE"**, WITH ALL FAULTS AND WITHOUT WARRANTY OR CONDITION OF ANY KIND, WHETHER EXPRESS, IMPLIED, OR STATUTORY, INCLUDING WITHOUT LIMITATION ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, NON-INFRINGEMENT, AVAILABILITY, OR ACCURACY OF AI/AGENT OUTPUTS. YOU ASSUME ALL RISK ASSOCIATED WITH SELF-HOSTING AND EXECUTING AUTONOMOUS AGENT ACTIONS AND COMMANDS.
+
+---
+
+## 7. Limitation of Liability
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL THE LICENSOR BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, OR FOR ANY LOSS OF PROFITS, REVENUE, DATA, CREDENTIALS, SYSTEM INTEGRITY, BUSINESS, OR GOODWILL, ARISING OUT OF OR IN CONNECTION WITH THIS AGREEMENT OR THE USE OF OR INABILITY TO USE THE SOFTWARE, UNDER ANY THEORY OF LIABILITY (CONTRACT, TORT, NEGLIGENCE, STRICT LIABILITY, OR OTHERWISE), EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. BECAUSE THE SOFTWARE IS PROVIDED FREE OF CHARGE, THE LICENSOR'S TOTAL CUMULATIVE LIABILITY UNDER OR IN CONNECTION WITH THIS AGREEMENT SHALL NOT EXCEED ZERO EUROS (0 EUR), OR THE MINIMUM AMOUNT REQUIRED BY MANDATORY APPLICABLE LAW.
+
+---
+
+## 8. Governing Law and Jurisdiction
+
+This Agreement and any dispute or claim arising out of or in connection with it shall be governed by and construed in accordance with the **laws of France**, excluding its conflict-of-law rules and the United Nations Convention on Contracts for the International Sale of Goods (CISG).
+
+Any dispute arising out of or relating to the validity, interpretation, performance, or termination of this Agreement shall be submitted to the **exclusive jurisdiction of the competent courts of Paris, France**, except where mandatory consumer protection laws in Your jurisdiction require otherwise.
