@@ -10,7 +10,7 @@
 
 services:
   krewos:
-    image: ghcr.io/krewos/krewos:${KREWOS_IMAGE_TAG:-v0.1.0}
+    image: ghcr.io/krewos/krewos:${KREWOS_IMAGE_TAG:-latest}
     init: false # tini is the image entrypoint
     restart: unless-stopped
     stop_grace_period: 15s
